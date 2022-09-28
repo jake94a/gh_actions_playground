@@ -7,13 +7,20 @@ on:
 jobs:
   # check if only certain files were changed
   # don't build if non-structural changes were made
-  check:
+  file-check:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 2
-      # Create the shortened sha of the commit to tag the image before pushing
+          fetch-depth: 0
+
+      - name: Set up python
+        # Setup correct python version
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+          cache: "pip"
+
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v31
@@ -23,3 +30,11 @@ jobs:
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "$file was changed"
           done
+
+      - name:
+          compare files
+          # look at files from above
+          # look at files from ignore-files.txt
+          # if all files from above are contained in ignore-files.txt then ignore this step
+        run: |
+          python .github/workflows/compare.py ${{ steps.changed-files.outputs.all_changed_files }}
