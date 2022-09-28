@@ -1,0 +1,25 @@
+name: Build Pipeline
+# Runs on all pushes that pass checks and are merged into main.
+on:
+  push:
+    branches:
+      - "main"
+jobs:
+  # check if only certain files were changed
+  # don't build if non-structural changes were made
+  check:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      # Create the shortened sha of the commit to tag the image before pushing
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v31
+
+      - name: List all changed files
+        run: |
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
