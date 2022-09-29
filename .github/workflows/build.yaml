@@ -4,22 +4,30 @@ on:
   push:
     branches:
       - "main"
+    paths-ignore:
+      - "1.txt"
+      - "2.txt"
+      - "3.txt"
+      - ".github"
+      - "ignore-files.txt"
 jobs:
   # check if only certain files were changed
   # don't build if non-structural changes were made
   file-check:
     runs-on: ubuntu-20.04
     steps:
+      - name: do stuff
+        run: echo ***********hello***********
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Set up python
-        # Setup correct python version
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-          cache: "pip"
+      # - name: Set up python
+      #   # Setup correct python version
+      #   uses: actions/setup-python@v4
+      #   with:
+      #     python-version: "3.10"
+      #     cache: "pip"
 
       - name: Get changed files
         id: changed-files
@@ -31,10 +39,10 @@ jobs:
             echo "$file was changed"
           done
 
-      - name:
-          compare files
-          # look at files from above
-          # look at files from ignore-files.txt
-          # if all files from above are contained in ignore-files.txt then ignore this step
-        run: |
-          python .github/workflows/compare.py ${{ steps.changed-files.outputs.all_changed_files }}
+      # - name:
+      #     compare files
+      #     # look at files from above
+      #     # look at files from ignore-files.txt
+      #     # if all files from above are contained in ignore-files.txt then ignore this step
+      #   run: |
+      #     python .github/workflows/compare.py ${{ steps.changed-files.outputs.all_changed_files }}
