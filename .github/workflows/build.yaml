@@ -5,8 +5,10 @@ on:
     branches:
       - "main"
     paths-ignore:
-      - 1.txt
-      - .github
+      - .github/**
+      - README.md
+      - 2.txt
+      - some_folder/**
 jobs:
   # check if only certain files were changed
   # don't build if non-structural changes were made
