@@ -1,22 +1,18 @@
+import os
 import sys
+from pathlib import Path
 
-f = open("ignore-files.txt")
+CHANGED_FILES = ["1.txt", "2.txt", ".github/workflows/build.yaml"]
+
+f = open(".dockerignore")
 ignore_files = f.read().splitlines()
 f.close()
 all_changed_files = sys.argv[1:]
 
-# file_diff = [
-#     x
-#     for x in ignore_files + all_changed_files
-#     if x not in ignore_files or x not in all_changed_files
-# ]
+for changed_file in CHANGED_FILES:
+    print("os.path.basename(changed_file)", os.path.basename(changed_file))
+    print("os.path.dirname(changed_file)", os.path.dirname(changed_file))
 
-# print("file_diff", file_diff)
-
-compared = []
-for changed_file_name in all_changed_files:
-    if changed_file_name not in ignore_files:
-        compared.append(changed_file_name)
-        break
-
-print("compared", compared)
+for ignore_file in ignore_files:
+    print("os.path.basename(ignore_file)", os.path.basename(ignore_file))
+    print("os.path.dirname(ignore_file)", os.path.dirname(ignore_file))
