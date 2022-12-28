@@ -5,13 +5,12 @@ on:
     branches:
       - "main"
 jobs:
-  automerge:
+  checkiboi:
     runs-on: ubuntu-20.04
     steps:
       - name: Wait for other workflows
         uses: lewagon/wait-on-check-action@v1.2.0
         with:
-          ref: ${{ github.ref }}
           check-name: "do me first"
       - name: do something
         run: echo *****THIS SHOULD SHOW UP LAST*****
