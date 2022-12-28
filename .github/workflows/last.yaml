@@ -6,6 +6,7 @@ on:
       - "main"
 jobs:
   checkiboi:
+    name: Checkiboi
     runs-on: ubuntu-20.04
     steps:
       - name: echo ref
@@ -15,6 +16,6 @@ jobs:
         with:
           ref: ${{ github.ref }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          check-name: "do stuff"
+          running-workflow-name: "Checkiboi"
       - name: do something
         run: echo *****THIS SHOULD SHOW UP LAST*****
