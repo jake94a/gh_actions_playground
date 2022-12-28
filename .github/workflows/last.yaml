@@ -11,6 +11,7 @@ jobs:
       - name: Wait for other workflows
         uses: lewagon/wait-on-check-action@v1.2.0
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           check-name: "do me first"
       - name: do something
         run: echo *****THIS SHOULD SHOW UP LAST*****
