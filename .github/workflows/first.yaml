@@ -1,0 +1,12 @@
+name: do me first
+# Runs on all pushes that pass checks and are merged into main.
+on:
+  pull_request:
+    branches:
+      - "main"
+jobs:
+  file-check:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: do stuff
+        run: echo ***********hello***********

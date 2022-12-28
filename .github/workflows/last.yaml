@@ -1,0 +1,17 @@
+name: do me last
+# Runs on all pushes that pass checks and are merged into main.
+on:
+  pull_request:
+    branches:
+      - "main"
+jobs:
+  automerge:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Wait for other workflows
+        uses: lewagon/wait-on-check-action@v1.2.0
+        with:
+          ref: ${{ github.ref }}
+          check-name: "do me first"
+      - name: do something
+        run: echo *****THIS SHOULD SHOW UP LAST*****
