@@ -9,4 +9,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: do stuff 123
-        run: echo ***********hello***********
+        run: |
+          echo github.ref ${{ github.ref }}
+          echo github.sha ${{ github.sha }}
