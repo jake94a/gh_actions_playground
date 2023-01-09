@@ -16,6 +16,6 @@ jobs:
         with:
           ref: ${{ github.ref }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          check-name: "do stuff"
+          check-name: "do me first"
       - name: do something
         run: echo *****THIS SHOULD SHOW UP LAST*****
