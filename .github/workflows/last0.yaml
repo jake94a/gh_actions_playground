@@ -1,5 +1,5 @@
 name: do me last
-# Runs on all pushes that pass checks and are merged into main.
+# Runs on all PRs (against main) after "do me first" has completed
 on:
   workflow_run:
     workflows: ["do me first"]
@@ -9,6 +9,7 @@ jobs:
   checkiboi:
     name: Checkiboi
     runs-on: ubuntu-20.04
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: do something
         run: echo *****THIS SHOULD SHOW UP LAST0*****
