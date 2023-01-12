@@ -1,20 +1,20 @@
-name: do me last1
-# Runs on all pushes that pass checks and are merged into main.
-on: [push]
-jobs:
-  checkiboi:
-    name: Checkiboi
-    runs-on: ubuntu-20.04
-    steps:
-      - name: echo ref
-        run: |
-          echo github.ref ${{ github.ref }}
-          echo github.sha ${{ github.sha }}
-      - name: Wait for other workflows
-        uses: lewagon/wait-on-check-action@master
-        with:
-          ref: ${{ github.sha }}
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          check-name: do stuff 123
-      - name: do something
-        run: echo *****THIS SHOULD SHOW UP LAST1*****
+# name: do me last1
+# # Runs on all pushes that pass checks and are merged into main.
+# on: [push]
+# jobs:
+#   checkiboi:
+#     name: Checkiboi
+#     runs-on: ubuntu-20.04
+#     steps:
+#       - name: echo ref
+#         run: |
+#           echo github.ref ${{ github.ref }}
+#           echo github.sha ${{ github.sha }}
+#       - name: Wait for other workflows
+#         uses: lewagon/wait-on-check-action@master
+#         with:
+#           ref: ${{ github.sha }}
+#           repo-token: ${{ secrets.GITHUB_TOKEN }}
+#           check-name: do stuff 123
+#       - name: do something
+#         run: echo *****THIS SHOULD SHOW UP LAST1*****
