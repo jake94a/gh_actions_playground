@@ -1,4 +1,4 @@
-name: do me first
+name: do me first 123
 # Runs on all pushes against main.
 on:
   pull_request:
@@ -8,17 +8,18 @@ jobs:
   file-check:
     runs-on: ubuntu-20.04
     steps:
-      - name: do stuff 123
-        run: echo hello123
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Get changed files
-        # https://github.com/tj-actions/changed-files
-        id: changed-files
+
+      - name: Get changed files in the docs folder
+        id: changed-files-specific
         uses: tj-actions/changed-files@v35
-      - name: List all changed files
+        with:
+          files: |
+            requirements.txt
+
+      - name: Run step if requirements.txt has changes
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
-          done
+          echo "List all the files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
