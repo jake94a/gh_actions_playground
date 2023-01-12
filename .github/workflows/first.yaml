@@ -5,7 +5,7 @@ jobs:
   file-check:
     runs-on: ubuntu-20.04
     steps:
-      - name: "do stuff 123"
+      - name: do stuff 123
         run: |
           echo github.ref ${{ github.ref }}
           echo github.sha ${{ github.sha }}
