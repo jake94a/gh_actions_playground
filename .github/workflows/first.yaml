@@ -1,5 +1,5 @@
 name: do me first
-# Runs on all pushes that pass checks and are merged into main.
+# Runs on all pushes against main.
 on:
   pull_request:
     branches:
@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: do stuff 123
-        run: |
-          echo github.ref ${{ github.ref }}
-          echo github.sha ${{ github.sha }}
+        run: echo hello
+      - name: try to fail
+        run: exit 1
