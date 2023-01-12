@@ -1,9 +1,6 @@
-name: do me last
+name: do me last1
 # Runs on all pushes that pass checks and are merged into main.
-on:
-  pull_request:
-    branches:
-      - "main"
+on: push
 jobs:
   checkiboi:
     name: Checkiboi
@@ -20,4 +17,4 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           check-name: "do stuff 123"
       - name: do something
-        run: echo *****THIS SHOULD SHOW UP LAST*****
+        run: echo *****THIS SHOULD SHOW UP LAST1*****
