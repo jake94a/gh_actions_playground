@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-20.04
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: do something
         run: echo *****I PASSED*****
       - name: Verify Changed files
@@ -29,6 +32,9 @@ jobs:
     runs-on: ubuntu-20.04
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: do something
         run: echo *****I FAILED*****
       - name: Verify Changed files
