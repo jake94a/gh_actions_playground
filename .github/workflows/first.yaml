@@ -1,6 +1,6 @@
 name: do me first
 # Runs on all pushes that pass checks and are merged into main.
-on: push
+on: [push]
 jobs:
   file-check:
     runs-on: ubuntu-20.04

@@ -1,6 +1,6 @@
 name: do me last0
 # Runs on all pushes that pass checks and are merged into main.
-on: push
+on: [push]
 jobs:
   checkiboi:
     name: Checkiboi
