@@ -17,9 +17,8 @@ jobs:
         # https://github.com/tj-actions/changed-files
         id: changed-files
         uses: tj-actions/changed-files@v35
-        with:
-          files: |
-            requirements.txt
       - name: List all changed files
         run: |
-          echo "List all the files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
