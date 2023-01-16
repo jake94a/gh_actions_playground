@@ -1,50 +1,50 @@
-name: do me last
-# Runs on all PRs (against main) after "do me first" has completed
-on:
-  workflow_run:
-    workflows: ["do me first"]
-    types:
-      - completed
-jobs:
-  on_success:
-    name: on success
-    runs-on: ubuntu-20.04
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: do something
-        run: echo *****I PASSED*****
-      - name: Get changed files
-        # https://github.com/tj-actions/changed-files
-        id: changed-files
-        uses: tj-actions/changed-files@v35
-      - name: List all changed files
-        run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
-          done
+# name: do me last
+# # Runs on all PRs (against main) after "do me first" has completed
+# on:
+#   workflow_run:
+#     workflows: ["do me first"]
+#     types:
+#       - completed
+# jobs:
+#   on_success:
+#     name: on success
+#     runs-on: ubuntu-20.04
+#     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+#     steps:
+#       - uses: actions/checkout@v3
+#         with:
+#           fetch-depth: 0
+#       - name: do something
+#         run: echo *****I PASSED*****
+#       - name: Get changed files
+#         # https://github.com/tj-actions/changed-files
+#         id: changed-files
+#         uses: tj-actions/changed-files@v35
+#       - name: List all changed files
+#         run: |
+#           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+#             echo "$file was changed"
+#           done
 
-  on_failure:
-    name: on failure
-    runs-on: ubuntu-20.04
-    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: do something
-        run: echo *****I FAILED*****
-      - name: Get changed files
-        # https://github.com/tj-actions/changed-files
-        id: changed-files
-        uses: tj-actions/changed-files@v35
-        with:
-          files: |
-            requirements.txt
-      - name: Run step if any file(s) in the docs folder change
-        if: steps.changed-files-specific.outputs.any_changed == 'true'
-        run: |
-          echo "One or more files in the docs folder has changed."
-          echo "List all the files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
+#   on_failure:
+#     name: on failure
+#     runs-on: ubuntu-20.04
+#     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+#     steps:
+#       - uses: actions/checkout@v3
+#         with:
+#           fetch-depth: 0
+#       - name: do something
+#         run: echo *****I FAILED*****
+#       - name: Get changed files
+#         # https://github.com/tj-actions/changed-files
+#         id: changed-files
+#         uses: tj-actions/changed-files@v35
+#         with:
+#           files: |
+#             requirements.txt
+#       - name: Run step if any file(s) in the docs folder change
+#         if: steps.changed-files-specific.outputs.any_changed == 'true'
+#         run: |
+#           echo "One or more files in the docs folder has changed."
+#           echo "List all the files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
