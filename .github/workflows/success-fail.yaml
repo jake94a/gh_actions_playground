@@ -1,0 +1,22 @@
+name: success-fail
+# Runs on all pushes against main.
+on:
+  pull_request:
+    branches:
+      - "main"
+jobs:
+  idk:
+    name: "skip_me"
+    runs-on: ubuntu-20.04
+    steps:
+      - name: One
+        if: 1 == 2
+        run: echo "this shouldn't appear"
+      - name: success
+        if: (success() || failure())
+        run: |
+          exit 0
+      - name: fail
+        if: (success() || failure())
+        run: |
+          exit 1
