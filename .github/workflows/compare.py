@@ -10,7 +10,7 @@ f.close()
 all_changed_files = sys.argv[1:]
 
 for changed_file in CHANGED_FILES:
-    print("os.path.basename(changed_file)", os.path.basename(changed_file))
+    print("os.path.basename(changed_file)a", os.path.basename(changed_file))
     print("os.path.dirname(changed_file)", os.path.dirname(changed_file))
 
 for ignore_file in ignore_files:
