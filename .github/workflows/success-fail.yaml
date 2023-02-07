@@ -6,7 +6,7 @@ on:
       - "main"
 jobs:
   idk:
-    name: "skip_me"
+    name: "successes and fails"
     runs-on: ubuntu-20.04
     steps:
       - name: One
