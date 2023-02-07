@@ -1,0 +1,22 @@
+name: cache-pip
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  # Run the black formatter (for Python code)
+  pip:
+    # define the operating system for the jobs to run on
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      # Setup python with our build version, no build matrix
+      - name: Set up python
+        # Setup correct python version
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10.9"
+          cache: "pip"
+      - run: pip install -r requirements.txt

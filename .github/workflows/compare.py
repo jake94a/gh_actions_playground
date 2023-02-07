@@ -15,4 +15,4 @@ for changed_file in CHANGED_FILES:
 
 for ignore_file in ignore_files:
     print("os.path.basename(ignore_file)", os.path.basename(ignore_file))
-    print("os.path.dirname(ignore_file)", os.path.dirname(ignore_file))
+    print("os.path.dirname(ignore_file)a", os.path.dirname(ignore_file))
