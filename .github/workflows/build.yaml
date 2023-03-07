@@ -28,15 +28,10 @@ jobs:
       #     python-version: "3.10"
       #     cache: "pip"
 
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v31
-
-      - name: List all changed files
+      - name: Build Docker Image
         run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
-          done
+          export DOCKER_BUILDKIT=1
+          docker buildx ls
 
       # - name:
       #     compare files
