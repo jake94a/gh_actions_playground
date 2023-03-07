@@ -1,11 +1,11 @@
-name: Build Pipeline
+name: Docker
 # Runs on all pushes that pass checks and are merged into main.
 on:
   pull_request:
     branches:
       - main
 jobs:
-  file-check:
+  setup-docker-buildx:
     runs-on: ubuntu-20.04
     steps:
       - name: do stuff
@@ -16,4 +16,6 @@ jobs:
       - name: Build Docker Image
         run: |
           export DOCKER_BUILDKIT=1
+          docker buildx create --name=dd --driver=docker-container
+          docker buildx use dd
           docker buildx ls
