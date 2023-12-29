@@ -1,0 +1,18 @@
+version: 2
+updates:
+  - package-ecosystem: "pip" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "monthly"
+    # open-pull-requests-limit: 10
+    commit-message:
+      prefix: pip-chore
+    # group all python package updates into one PR
+    groups:
+      poetry:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+          - "major"
