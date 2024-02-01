@@ -16,4 +16,4 @@ jobs:
       - name: echo contexts
         # env:
         # LABELS: ${{ github.event.pull_request.labels }}
-        run: echo ${{ github.event.pull_request.labels }}
+        run: echo "${{ toJson(github.event.pull_request.labels) }}"
