@@ -1,0 +1,56 @@
+[
+  {
+    "color": "d73a4a",
+    "default": true,
+    "description": "Something isn't working",
+    "id": 4589097929,
+    "name": "bug",
+    "node_id": "LA_kwDOIFoQvs8AAAABEYgTyQ",
+    "url": "https://api.github.com/repos/jake94a/gh_actions_playground/labels/bug"
+  },
+  {
+    "color": "0075ca",
+    "default": true,
+    "description": "Improvements or additions to documentation",
+    "id": 4589097930,
+    "name": "documentation",
+    "node_id": "LA_kwDOIFoQvs8AAAABEYgTyg",
+    "url": "https://api.github.com/repos/jake94a/gh_actions_playground/labels/documentation"
+  },
+  {
+    "color": "cfd3d7",
+    "default": true,
+    "description": "This issue or pull request already exists",
+    "id": 4589097931,
+    "name": "duplicate",
+    "node_id": "LA_kwDOIFoQvs8AAAABEYgTyw",
+    "url": "https://api.github.com/repos/jake94a/gh_actions_playground/labels/duplicate"
+  },
+  {
+    "color": "a2eeef",
+    "default": true,
+    "description": "New feature or request",
+    "id": 4589097932,
+    "name": "enhancement",
+    "node_id": "LA_kwDOIFoQvs8AAAABEYgTzA",
+    "url": "https://api.github.com/repos/jake94a/gh_actions_playground/labels/enhancement"
+  },
+  {
+    "color": "7057ff",
+    "default": true,
+    "description": "Good for newcomers",
+    "id": 4589097934,
+    "name": "good first issue",
+    "node_id": "LA_kwDOIFoQvs8AAAABEYgTzg",
+    "url": "https://api.github.com/repos/jake94a/gh_actions_playground/labels/good%20first%20issue"
+  },
+  {
+    "color": "0366d6",
+    "default": false,
+    "description": "Pull requests that update a dependency file",
+    "id": 6375176258,
+    "name": "dependencies",
+    "node_id": "LA_kwDOIFoQvs8AAAABe_14Qg",
+    "url": "https://api.github.com/repos/jake94a/gh_actions_playground/labels/dependencies"
+  }
+]
