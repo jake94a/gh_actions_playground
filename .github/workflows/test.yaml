@@ -18,7 +18,6 @@ jobs:
         # LABELS: ${{ github.event.pull_request.labels }}
         id: echo-contexts
         run: |
-          echo "${{ toJson(github.event.pull_request.labels) }}"
           echo ${{ toJson(github.event.pull_request.labels) }} | jq '.[].name' | grep 'bug'
       - name: check bug label status
         if: ${{ steps.echo-contexts.outcome }}
