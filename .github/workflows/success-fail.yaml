@@ -1,9 +1,10 @@
 name: success-fail
 # Runs on all pushes against main.
 on:
-  pull_request:
-    branches:
-      - "main"
+  workflow_dispatch:
+  # pull_request:
+  #   branches:
+  #     - "main"
 jobs:
   idk:
     name: "successes and fails"

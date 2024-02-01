@@ -1,0 +1,19 @@
+name: test
+# Runs on all pushes against main.
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  first:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: first
+        run: |
+          exit 0
+      - name: echo contexts
+        env:
+          LABELS: ${{ github.event.pull_request.labels }}
+        run: |
+          echo $LABELS

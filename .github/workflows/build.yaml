@@ -1,14 +1,15 @@
 name: Build Pipeline
 # Runs on all pushes that pass checks and are merged into main.
 on:
-  push:
-    branches:
-      - "main"
-    paths-ignore:
-      - .github/**
-      - README.md
-      - 2.txt
-      - some_folder/**
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - "main"
+  #   paths-ignore:
+  #     - .github/**
+  #     - README.md
+  #     - 2.txt
+  #     - some_folder/**
 jobs:
   # check if only certain files were changed
   # don't build if non-structural changes were made
