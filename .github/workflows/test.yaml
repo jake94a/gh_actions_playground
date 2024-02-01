@@ -13,12 +13,14 @@ jobs:
       # - name: first
       #   run: |
       #     exit 0
-      - name: echo contexts
-        # env:
-        # LABELS: ${{ github.event.pull_request.labels }}
-        id: echo-contexts
-        run: |
-          echo ${{ toJson(github.event.pull_request.labels) }} | jq '.[].name' | grep 'bug'
+      # - name: echo contexts
+      #   # env:
+      #   # LABELS: ${{ github.event.pull_request.labels }}
+      #   id: echo-contexts
+      #   run: |
+      #     echo ${{ toJson(github.event.pull_request.labels) }} | jq '.[].name' | grep 'bug'
       - name: check bug label status
-        if: ${{ steps.echo-contexts.outcome }}
-        run: exit 0
+        if: contains(github.event.pull_request.labels.*.name, 'bug')
+        run: |
+          echo HELLO
+          exit 0
