@@ -7,22 +7,38 @@ jobs:
   shells:
     runs-on: ubuntu-20.04
     steps:
+      - name: Python Version
+        shell: bash
+        run: |
+          python --version
+
+      - name: Set up python
+        # Setup correct python version
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10.9"
+          cache: "pip"
+
       - name: Python
         shell: python
         run: |
-          print("hello")
+          import sys
+          print(sys.version)
 
       - name: Python3
         shell: python3
         run: |
-          print("hello")
+          import sys
+          print(sys.version)
 
       - name: Python3.10
         shell: python3.10
         run: |
-          print("hello")
+          import sys
+          print(sys.version)
 
       - name: Python3.10.9
         shell: python3.10.9
         run: |
-          print("hello")
+          import sys
+          print(sys.version)
