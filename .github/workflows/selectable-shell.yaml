@@ -1,0 +1,28 @@
+name: Selectable Shell
+# Runs on all pushes against main.
+on:
+  workflow_dispatch:
+
+jobs:
+  shells:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Python
+        shell: python
+        run: |
+          print("hello")
+
+      - name: Python3
+        shell: python3
+        run: |
+          print("hello")
+
+      - name: Python3.10
+        shell: python3.10
+        run: |
+          print("hello")
+
+      - name: Python3.10.9
+        shell: python3.10.9
+        run: |
+          print("hello")
