@@ -19,8 +19,9 @@ jobs:
       #   id: echo-contexts
       #   run: |
       #     echo ${{ toJson(github.event.pull_request.labels) }} | jq '.[].name' | grep 'bug'
-      - name: check bug label status
-        if: contains(github.event.pull_request.labels.*.name, 'bug')
+      - name: add hotfix label
+      - name: auto approve hotfixes
+        if: contains(github.event.pull_request.labels.*.name, 'hotfix')
         run: |
           curl -X POST \
             https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/reviews \

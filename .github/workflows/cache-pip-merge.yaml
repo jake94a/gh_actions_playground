@@ -10,7 +10,7 @@ jobs:
     # define the operating system for the jobs to run on
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       # Setup python with our build version, no build matrix
