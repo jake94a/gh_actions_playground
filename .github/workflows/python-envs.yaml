@@ -22,7 +22,7 @@ jobs:
         shell: python
         run: |
           import os
-          NEW_ENV_VAR = 1234
+          NEW_ENV_VAR = "1234"
           os.environ["NEW_ENV_VAR"] = NEW_ENV_VAR
 
       - name: Echo env vars
