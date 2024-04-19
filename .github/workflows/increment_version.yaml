@@ -1,0 +1,29 @@
+name: increment version
+
+on:
+  workflow_dispatch:
+
+jobs:
+  do-the-thing:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: increment patch version
+        shell: bash
+        run: |
+          python $GITHUB_WORKSPACE/.github/workflows/increment_version.py
+
+      - name: push new version
+        env:
+          COMMIT_USERNAME: temp-deps-deploy
+          COMMIT_USER_EMAIL: devbot@brightops.com
+          NEW_VER: ${{ env.NEW_VER }} # this comes from the python script
+        run: |
+          git config --global user.name $COMMIT_USERNAME
+          git config --global user.email $COMMIT_USER_EMAIL
+          git add 
+          git commit -m "new version $NEW_VER"
+          git push origin main
