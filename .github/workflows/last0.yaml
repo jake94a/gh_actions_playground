@@ -1,10 +1,11 @@
 name: do me last0
 # Runs on all PRs (against main) after "do me first" has completed
 on:
-  workflow_run:
-    workflows: ["do me first"]
-    types:
-      - completed
+  workflow_dispatch:
+  # workflow_run:
+  #   workflows: ["do me first"]
+  #   types:
+  #     - completed
 jobs:
   depth_zero:
     runs-on: ubuntu-20.04

@@ -1,10 +1,11 @@
 name: do me last
 # Runs on all PRs (against main) after "do me first" has completed
 on:
-  workflow_run:
-    workflows: ["do me first"]
-    types:
-      - completed
+  workflow_dispatch:
+  # workflow_run:
+  #   workflows: ["do me first"]
+  #   types:
+  #     - completed
 jobs:
   on_success:
     name: on success

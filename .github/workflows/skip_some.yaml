@@ -1,20 +1,21 @@
-# name: skips
-# # Runs on all pushes against main.
-# on:
-#   pull_request:
-#     branches:
-#       - "main"
-# jobs:
-#   skip_me:
-#     name: "skip_me"
-#     runs-on: ubuntu-20.04
-#     steps:
-#       - name: One
-#         if: 1 == 2
-#         run: echo "this shouldn't appear"
-#   dont_skip_me:
-#     runs-on: ubuntu-20.04
-#     needs: ["skip_me"]
-#     steps:
-#       - name: Two
-#         run: echo "this should appear"
+name: skips
+# Runs on all pushes against main.
+on:
+  workflow_dispatch:
+  # pull_request:
+  #   branches:
+  #     - "main"
+jobs:
+  skip_me:
+    name: "skip_me"
+    runs-on: ubuntu-20.04
+    steps:
+      - name: One
+        if: 1 == 2
+        run: echo "this shouldn't appear"
+  dont_skip_me:
+    runs-on: ubuntu-20.04
+    needs: ["skip_me"]
+    steps:
+      - name: Two
+        run: echo "this should appear"

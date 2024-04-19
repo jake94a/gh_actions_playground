@@ -1,8 +1,9 @@
 name: cache-pip-merge
 on:
-  push:
-    branches:
-      - "main"
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - "main"
 jobs:
   # Run the black formatter (for Python code)
   pip:

@@ -1,0 +1,33 @@
+name: Python Envs
+# Runs on all pushes against main.
+on:
+  workflow_dispatch:
+
+jobs:
+  python-envs:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Python Version
+        shell: bash
+        run: |
+          python --version
+
+      - name: Set up python
+        # Setup correct python version
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10.9"
+
+      - name: Python
+        shell: python
+        run: |
+          import os
+          NEW_ENV_VAR = 1234
+          os.environ["NEW_ENV_VAR"] = NEW_ENV_VAR
+
+      - name: Echo env vars
+        shell: bash
+        env:
+          NEW_ENV_VAR: ${{ env.NEW_ENV_VAR }}
+        run: |
+          echo $NEW_ENV_VAR
