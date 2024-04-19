@@ -7,10 +7,8 @@ jobs:
   python-envs:
     runs-on: ubuntu-20.04
     steps:
-      - name: Python Version
-        shell: bash
-        run: |
-          python --version
+      - name: checkout
+        uses: actions/checkout@v4
 
       - name: Set up python
         # Setup correct python version
@@ -18,12 +16,15 @@ jobs:
         with:
           python-version: "3.10.9"
 
-      - name: Python
-        shell: python
+      - name: Python Version
+        shell: bash
         run: |
-          import os
-          NEW_ENV_VAR = "1234"
-          os.environ["NEW_ENV_VAR"] = NEW_ENV_VAR
+          python --version
+
+      - name: Python
+        shell: bash
+        run: |
+          python $GITHUB_WORKSPACE/.github/workflows/python_envs.py
 
       - name: Echo env vars
         shell: bash
