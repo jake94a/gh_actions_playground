@@ -18,12 +18,12 @@ jobs:
 
       - name: push new version
         env:
-          COMMIT_USERNAME: temp-deps-deploy
-          COMMIT_USER_EMAIL: devbot@brightops.com
+          COMMIT_USERNAME: Jake Anderson
+          COMMIT_USER_EMAIL: 54042868+jake94a@users.noreply.github.com
           NEW_VER: ${{ env.NEW_VER }} # this comes from the python script
         run: |
           git config --global user.name $COMMIT_USERNAME
           git config --global user.email $COMMIT_USER_EMAIL
-          git add 
+          git add .
           git commit -m "new version $NEW_VER"
           git push origin main
