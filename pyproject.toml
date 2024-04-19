@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "jake-test"
-version = "1.2.3"
+version = "1.2.4"
 description = ""
 authors = ["Jake Anderson <54042868+jake94a@users.noreply.github.com>"]
 readme = "README.md"
