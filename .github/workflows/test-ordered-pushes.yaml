@@ -1,0 +1,14 @@
+name: Test Ordered Pushes
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  do-nothong:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: do nothing
+        run: echo ***********hello***********
