@@ -1,0 +1,21 @@
+name: Docker
+# Runs on all pushes that pass checks and are merged into main.
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  setup-docker-buildx:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: do stuff
+        run: echo ***********hello***********
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Build Docker Image
+        run: |
+          export DOCKER_BUILDKIT=1
+          docker buildx create --name=dd --driver=docker-container
+          docker buildx use dd
+          docker buildx ls
